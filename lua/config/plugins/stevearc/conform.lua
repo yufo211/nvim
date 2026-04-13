@@ -7,6 +7,7 @@ require("conform").setup({
 		html = { "prettier", stop_after_first = true },
 		lua = { "stylua" },
 		markdown = { "prettier", stop_after_first = true },
+		ruby = { "rubocop", stop_after_first = true },
 		typescript = { "prettier", stop_after_first = true },
 		yaml = { "prettier", "yamlfmt", stop_after_first = true },
 	},
