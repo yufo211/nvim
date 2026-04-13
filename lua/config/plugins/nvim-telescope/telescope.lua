@@ -50,9 +50,11 @@ local IGNORED_EXTENSIONS = {
 }
 
 local custom_find_command = nil
+local custom_grep_args = nil
 
 -- rg(ripgrep)が使える場合の設定
 if vim.fn.executable("rg") == 1 then
+	-- ファイル名検索用のコマンド
 	custom_find_command = {
 		"rg",
 		"--files",
@@ -60,6 +62,21 @@ if vim.fn.executable("rg") == 1 then
 		"--glob",
 		"!.git/*", -- .gitディレクトリの中身を除外する
 	}
+
+	-- 文字列検索用の引数
+	custom_grep_args = {
+		"rg",
+		"--color=never",
+		"--no-heading",
+		"--with-filename",
+		"--line-number",
+		"--column",
+		"--smart-case",
+		"--hidden", -- 隠しファイルの中身も検索する
+		"--glob",
+		"!.git/*", -- .gitディレクトリの中身を除外する
+	}
+
 -- fdが使える場合の設定
 elseif vim.fn.executable("fd") == 1 or vim.fn.executable("fdfind") == 1 then
 	local fd_bin = vim.fn.executable("fd") == 1 and "fd" or "fdfind"
@@ -77,6 +94,7 @@ require("telescope").setup({
 	defaults = {
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 		file_ignore_patterns = IGNORED_EXTENSIONS,
+		vimgrep_arguments = custom_grep_args,
 	},
 	pickers = {
 		find_files = {
