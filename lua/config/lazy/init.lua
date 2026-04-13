@@ -40,7 +40,7 @@ require("lazy").setup({
 		},
 		{
 			"nvim-lualine/lualine.nvim",
-			opts = { theme = catppuccin },
+			opts = { theme = "auto" },
 			dependencies = { "nvim-tree/nvim-web-devicons" },
 		},
 		{
@@ -48,8 +48,11 @@ require("lazy").setup({
 		},
 		{
 			"nvim-telescope/telescope.nvim",
-			branch = "0.1.x",
-			dependencies = { "nvim-lua/plenary.nvim" },
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				-- optional but recommended
+				{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			},
 		},
 		{
 			"windwp/nvim-autopairs",
