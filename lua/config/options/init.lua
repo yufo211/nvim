@@ -40,6 +40,18 @@ vim.opt.wildmode = "list:longest"
 -- 字下げ、行末、開始地点以前をBackSpaceで消去可能にする
 vim.opt.backspace = "indent,eol,start"
 
+-- Tab入力をスペースに変換（タブ文字を使わない）
+vim.opt.expandtab = true
+
+-- Tab文字の表示幅を2スペースに設定
+vim.opt.tabstop = 2
+
+-- 自動インデントの幅をスペース2つ分に設定
+vim.opt.shiftwidth = 2
+
+-- Tabキー押下時の実際の挿入スペース数（expandtab時）を2に設定
+vim.opt.softtabstop = 2
+
 -- マウス操作の有効化
 vim.opt.mouse = "a"
 
