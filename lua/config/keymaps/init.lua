@@ -41,3 +41,18 @@ vim.keymap.set({ "n", "x" }, "C", '"_C', { noremap = true })
 -- sで文字を変えるときにヤンクされないようにする
 vim.keymap.set({ "n", "x" }, "s", '"_s', { noremap = true })
 vim.keymap.set({ "n", "x" }, "S", '"_S', { noremap = true })
+
+-- LSP関連
+vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "LSP: code action" })
+vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition, { desc = "LSP: go to definition" })
+vim.keymap.set("n", "<leader>lk", vim.lsp.buf.hover, { desc = "LSP: hover" })
+vim.keymap.set("n", "<leader>li", vim.lsp.buf.implementation, { desc = "LSP: go to implementation" })
+vim.keymap.set("n", "<leader>lr", vim.lsp.buf.references, { desc = "LSP: show references" })
+vim.keymap.set("n", "<leader>lR", vim.lsp.buf.rename, { desc = "LSP: rename" })
+vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float, { desc = "LSP: show diagnostics" })
+vim.keymap.set("n", "<leader>ln", function()
+	vim.diagnostic.jump({ count = 1 })
+end, { desc = "LSP: jump next diagnostic" })
+vim.keymap.set("n", "<leader>lN", function()
+	vim.diagnostic.jump({ count = -1 })
+end, { desc = "LSP: jump prev diagnostic" })
