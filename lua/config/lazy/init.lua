@@ -35,56 +35,18 @@ require("lazy").setup({
 			end,
 		},
 		{
-			"nvim-mini/mini.icons",
-			version = "*",
-		},
-		{
-			"nvim-tree/nvim-web-devicons",
-			opts = {},
-		},
-		{
 			"nvim-lualine/lualine.nvim",
+			lazy = false,
 			dependencies = { "nvim-tree/nvim-web-devicons" },
-		},
-		{
-			"nvim-lua/plenary.nvim",
-		},
-		{
-			"nvim-telescope/telescope.nvim",
-			dependencies = {
-				"nvim-lua/plenary.nvim",
-				-- optional but recommended
-				{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-			},
-		},
-		{
-			"windwp/nvim-autopairs",
-			event = "InsertEnter",
-			config = true,
-		},
-		{
-			"neovim/nvim-lspconfig",
-		},
-		{
-			"mason-org/mason.nvim",
-			opts = {},
-		},
-		{
-			"mason-org/mason-lspconfig.nvim",
-			opts = {},
-			dependencies = {
-				{ "mason-org/mason.nvim", opts = {} },
-				"neovim/nvim-lspconfig",
-			},
-		},
-		{
-			"stevearc/conform.nvim",
-			opt = {},
+			config = function()
+				require("config.plugins.nvim-lualine.lualine")
+			end,
 		},
 		{
 			"folke/which-key.nvim",
 			event = "VeryLazy",
 			opts = {},
+			dependencies = { "nvim-tree/nvim-web-devicons", "nvim-mini/mini.icons" },
 			keys = {
 				{
 					"<leader>?",
@@ -94,6 +56,57 @@ require("lazy").setup({
 					desc = "Buffer Local Keymaps (which-key)",
 				},
 			},
+		},
+		{
+			"nvim-telescope/telescope.nvim",
+			cmd = "Telescope",
+			keys = {
+				{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Telescope: find files" },
+				{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Telescope: live grep" },
+				{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Telescope: keymappings" },
+				{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Telescope: buffers" },
+				{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Telescope: help tags" },
+			},
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				-- optional but recommended
+				{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			},
+			config = function()
+				require("config.plugins.nvim-telescope.telescope")
+			end,
+		},
+		{
+			"matze/vim-move",
+			keys = {
+				{ "<A-k>", mode = { "n", "v" }, desc = "Move current line/selection up" },
+				{ "<A-j>", mode = { "n", "v" }, desc = "Move current line/selection down" },
+				{ "<A-h>", mode = { "n", "v" }, desc = "Move current character/selection left" },
+				{ "<A-l>", mode = { "n", "v" }, desc = "Move current character/selection right" },
+			},
+		},
+		{
+			"mason-org/mason-lspconfig.nvim",
+			event = { "BufReadPre", "BufNewFile" },
+			opts = {},
+			dependencies = {
+				{ "mason-org/mason.nvim", opts = {} },
+				"neovim/nvim-lspconfig",
+			},
+		},
+		{
+			"windwp/nvim-autopairs",
+			event = "InsertEnter",
+			config = true,
+		},
+		{
+			"stevearc/conform.nvim",
+			event = { "BufWritePre" },
+			cmd = { "ConformInfo" },
+			opts = {},
+			config = function()
+				require("config.plugins.stevearc.conform")
+			end,
 		},
 	},
 	-- Configure any other settings here. See the documentation for more details.

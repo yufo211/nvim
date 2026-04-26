@@ -1,4 +1,4 @@
--- nvim-telescope/telescope.lua
+-- nvim-telescope/telescope.nvim
 
 local IGNORED_EXTENSIONS = {
 	-- 画像系
