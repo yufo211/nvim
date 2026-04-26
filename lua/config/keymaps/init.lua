@@ -27,12 +27,20 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "q:", "<Nop>")
 
 -- dで文字を消すときにヤンクされないようにする
-vim.keymap.set("n", "d", '"_d', { noremap = true })
-vim.keymap.set("x", "d", '"_d', { noremap = true })
+vim.keymap.set({ "n", "x" }, "d", '"_d', { noremap = true })
+vim.keymap.set({ "n", "x" }, "D", '"_D', { noremap = true })
 
 -- xで文字を消すときにヤンクされないようにする
-vim.keymap.set("n", "x", '"_x', { noremap = true })
-vim.keymap.set("x", "x", '"_x', { noremap = true })
+vim.keymap.set({ "n", "x" }, "x", '"_x', { noremap = true })
+vim.keymap.set({ "n", "x" }, "X", '"_X', { noremap = true })
+
+-- cで文字を変えるときにヤンクされないようにする
+vim.keymap.set({ "n", "x" }, "c", '"_c', { noremap = true })
+vim.keymap.set({ "n", "x" }, "C", '"_C', { noremap = true })
+
+-- sで文字を変えるときにヤンクされないようにする
+vim.keymap.set({ "n", "x" }, "s", '"_s', { noremap = true })
+vim.keymap.set({ "n", "x" }, "S", '"_S', { noremap = true })
 
 -- プラグイン
 -- nvim-telescope/telescope.nvim
