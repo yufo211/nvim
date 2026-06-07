@@ -52,8 +52,8 @@ vim.opt.shiftwidth = 2
 -- Tabキー押下時の実際の挿入スペース数（expandtab時）を2に設定
 vim.opt.softtabstop = 2
 
--- マウス操作の有効化
-vim.opt.mouse = "a"
+-- マウス操作の無効化
+vim.opt.mouse = ""
 
 -- 字下げ、行末、開始地点以前をBackSpaceで消去可能にする
 vim.opt.backspace = "indent,eol,start"
