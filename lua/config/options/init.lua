@@ -6,6 +6,9 @@ vim.api.nvim_buf_set_option(0, "modifiable", true)
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 
+-- プロジェクトの設定ファイル`.nvim.lua`を読み込む
+vim.opt.exrc = true
+
 -- バックアップファイルを作らない
 vim.opt.backup = false
 vim.opt.writebackup = false
