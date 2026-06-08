@@ -99,15 +99,6 @@ require("lazy").setup({
 			event = "InsertEnter",
 			config = true,
 		},
-		{
-			"stevearc/conform.nvim",
-			event = { "BufWritePre" },
-			cmd = { "ConformInfo" },
-			opts = {},
-			config = function()
-				require("config.plugins.stevearc.conform")
-			end,
-		},
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
