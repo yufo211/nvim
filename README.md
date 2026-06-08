@@ -29,7 +29,6 @@ git clone <git-repo>
 
 - [stylua](https://github.com/JohnnyMorganz/StyLua)
 
-### Yaml
+### Markdown
 
-- [yamlfmt](https://github.com/google/yamlfmt)
-  - Installs at `$HOME/go/bin/`
+- [Prettier](https://github.com/prettier/prettier)
